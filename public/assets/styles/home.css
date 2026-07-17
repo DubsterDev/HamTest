@@ -20,3 +20,7 @@
 .quizGrid .quizCard .info * {
     margin: var(--unit-1);
 }
+
+.quizGrid .quizCard svg {
+    flex-shrink: 0;
+}
