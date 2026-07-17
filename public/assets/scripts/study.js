@@ -1,4 +1,9 @@
 const submitButton = document.getElementById("submitButton");
+
+const quizProgressBar = document.getElementById("quizProgress");
+const questionsSeen = document.getElementById("questionsSeen");
+const totalQuestions = document.getElementById("totalQuestions");
+
 const questionIdText = document.getElementById("questionId");
 const newOrWeak = document.getElementById("newOrWeak");
 
@@ -143,6 +148,11 @@ function nextQuestion() {
         questionExplanationButton.style.display = "none";
         questionExplanation.innerText = "There is no explanation for this question yet.";
     }
+    
+    quizProgressBar.max = questionPool.length;
+    quizProgressBar.value = Object.keys(userQuestionInfos).length;
+    questionsSeen.innerText = Object.keys(userQuestionInfos).length;
+    totalQuestions.innerText = questionPool.length;
 }
 
 function submitAnswer() {
