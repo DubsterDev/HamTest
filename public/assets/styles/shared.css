@@ -3,6 +3,12 @@
     --background-color: light-dark(#fafafa, #212121);
     --secondary-container-bg: light-dark(#d5f8d0, #134b0b);
     --dim-text-color: light-dark(#787878, #c2c2c2);
+    --success: light-dark(#2E7D32, #4CAF50);
+    --success-container: light-dark(#A5D6A7, #1D3F1E);
+    --on-sucess-container: light-dark(#113B14, #C8E6C9);
+    --error: light-dark(rgb(186 26 26), rgb(255 180 171));
+    --error-container: light-dark(rgb(255 218 214), rgb(147 0 10));
+    --on-error-container: light-dark(rgb(147 0 10), rgb(255 218 214));
     --unit-0: 0;
     --unit-1: 0.25rem; /* 4px */
     --unit-2: 0.5rem; /* 8px */
@@ -97,7 +103,8 @@ button {
     padding: var(--unit-3);
     border-radius: var(--unit-10);
     border: none;
-    background-color: var(--secondary-container-bg);
+    background-color: var(--success-container);
+    color: var(--on-sucess-container);
 }
 
 @media screen and (max-width: 801px) {

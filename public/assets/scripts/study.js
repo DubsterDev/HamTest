@@ -3,6 +3,10 @@ const questionIdText = document.getElementById("questionId");
 const questionText = document.getElementById("questionText");
 const answerTexts = [...document.querySelectorAll(".answerText")];
 
+const correctBox = document.getElementById("correctBox");
+const correctBoxTitle = document.getElementById("correctBoxTitle");
+const correctBoxSubtitle = document.getElementById("correctBoxSubtitle");
+
 const userQuestionInfos = JSON.parse(localStorage.getItem(`${studyClass}-pool`) ?? "{}");
 
 const _placeholderQuestion = {
@@ -23,8 +27,11 @@ const _placeholderQuestion = {
 };
 let currentQuestion = _placeholderQuestion;
 
+let answerSubmitted = false;
+
 submitButton.addEventListener("click", () => {
-    
+    if (answerSubmitted) nextQuestion();
+    else submitAnswer();
 });
 
 document.querySelectorAll('input[type="radio"]').forEach(el => {
@@ -33,6 +40,12 @@ document.querySelectorAll('input[type="radio"]').forEach(el => {
 
 const abcd = ["A", "B", "C", "D"];
 function nextQuestion() {
+    answerSubmitted = false;
+    submitButton.innerText = "Submit";
+    
+    correctBox.classList.remove("visible");
+    correctBox.style.maxHeight = 0;
+    
     const scoresLessThanZero = Object.keys(userQuestionInfos).filter(key => userQuestionInfos[key].score < 0);
 
     if (scoresLessThanZero.length == 0) {
@@ -83,10 +96,35 @@ function nextQuestion() {
     })
 }
 
+function submitAnswer() {
+    answerSubmitted = true;
+    submitButton.innerText = "Next question";
+    
+    const answer = parseInt(document.querySelector('input[name="answerRadio"]:checked')?.value ?? "0");
+
+    if (answer == currentQuestion.correct) {
+        correctBox.classList.remove("wrong");
+        correctBox.classList.add("correct");
+        correctBox.classList.add("visible");
+        correctBoxTitle.innerText = "Correct!";
+        correctBoxSubtitle.innerText = "That was the right answer.";
+    } else {
+        correctBox.classList.remove("correct");
+        correctBox.classList.add("wrong");
+        correctBox.classList.add("visible");
+        correctBoxTitle.innerText = "Wrong.";
+        correctBoxSubtitle.innerText = `The right answer was ${currentQuestion.correct_letter}`;
+    }
+
+    correctBox.style.maxHeight = (correctBox.scrollHeight * 3) + 'px'
+}
+
 function updateQuestionInfo(key, value) {
     userQuestionInfos[key] = value;
     localStorage.setItem(`${studyClass}-pool`, JSON.stringify(userQuestionInfos));
 }
+
+nextQuestion();
 
 // Source - https://stackoverflow.com/a/2450976
 // Posted by ChristopheD, modified by community. See post 'Timeline' for change history
