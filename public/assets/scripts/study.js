@@ -3,14 +3,16 @@ const questionIdText = document.getElementById("questionId");
 const questionText = document.getElementById("questionText");
 const answerTexts = [...document.querySelectorAll(".answerText")];
 
-let currentQuestion = {
+const userQuestionInfos = JSON.parse(localStorage.getItem(`${studyClass}-pool`) ?? "{}");
+
+const _placeholderQuestion = {
     id: "PREVIEW",
     correct: 2,
     refs: "(wow)",
     question: "Does this look cool?",
     answers: ["Yes", "Of course", "No, the FCC rules prohibit it from looking cool", "The ARRL bylaws prevent ham software from looking new"],
     figure: "",
-    correctLetter: "C",
+    correct_letter: "C",
     explanation: "FCC rules explicitly state the software used by hams must never look cool. If a ham uses such software, their license may be immediately and permanently revoked or suspended.",
     userQuestionInfo: {
         id: "PREVIEW",
@@ -19,6 +21,7 @@ let currentQuestion = {
         firstTime: false
     }
 };
+let currentQuestion = _placeholderQuestion;
 
 submitButton.addEventListener("click", () => {
     
@@ -30,7 +33,40 @@ document.querySelectorAll('input[type="radio"]').forEach(el => {
 
 const abcd = ["A", "B", "C", "D"];
 function nextQuestion() {
-    currentQuestion = structuredClone(questionPool[Math.floor(questionPool.length * Math.random())]);
+    const scoresLessThanZero = Object.keys(userQuestionInfos).filter(key => userQuestionInfos[key].score < 0);
+
+    if (scoresLessThanZero.length == 0) {
+        const usedQuestionIds = Object.keys(userQuestionInfos);
+        const remainingQuestions = questionPool.filter(question => !usedQuestionIds.includes(question.id));
+
+        if (remainingQuestions.length > 0) {
+            const newQuestion = remainingQuestions[Math.floor(remainingQuestions.length * Math.random())];
+            const questionInfo = {
+                score: -2,
+                firstTime: true
+            };
+            updateQuestionInfo(newQuestion.id, questionInfo);
+            scoresLessThanZero.push(newQuestion.id);
+        }
+    }
+
+    const circulatingQuestions = Object.keys(userQuestionInfos).map(id => {
+        const question = structuredClone(questionPool.find(question => question.id == id) ?? _placeholderQuestion);
+        question.userQuestionInfo = userQuestionInfos[id];
+        return question;
+    }).toSorted((a, b) => a.userQuestionInfo.score - b.userQuestionInfo.score);
+
+    const shouldUseRandomQuestion = Math.random() >= .6;
+    
+    currentQuestion = structuredClone(circulatingQuestions[0]);
+
+    if (shouldUseRandomQuestion) {
+        const onlyAboveZeroQuestions = circulatingQuestions.filter(question => question.score >= 0);
+
+        currentQuestion = structuredClone(onlyAboveZeroQuestions.length > 0 ? 
+            onlyAboveZeroQuestions[Math.floor(Math.random() * onlyAboveZeroQuestions.length)]
+            : circulatingQuestions[Math.floor(Math.random() * circulatingQuestions.length)])
+    }
     
     const correctAnswer = currentQuestion.answers[currentQuestion.correct];
     
@@ -45,6 +81,11 @@ function nextQuestion() {
     currentQuestion.answers.forEach((answer, i) => {
         answerTexts[i].innerText = answer;
     })
+}
+
+function updateQuestionInfo(key, value) {
+    userQuestionInfos[key] = value;
+    localStorage.setItem(`${studyClass}-pool`, JSON.stringify(userQuestionInfos));
 }
 
 // Source - https://stackoverflow.com/a/2450976
