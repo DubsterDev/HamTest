@@ -87,3 +87,9 @@ header a {
 a {
     color: var(--text-color);
 }
+
+@media screen and (max-width: 801px) {
+    header {
+        border-radius: 0;
+    }
+}
