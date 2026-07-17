@@ -50,6 +50,7 @@ html, body {
 main {
     width: 100%;
     max-width: 600px;
+    padding: 0 var(--unit-3);
     margin: auto;
 }
 
