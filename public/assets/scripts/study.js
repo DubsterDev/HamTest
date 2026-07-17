@@ -138,6 +138,7 @@ function submitAnswer() {
     answers[currentQuestion.correct].classList.add("correct");
 
     const info = userQuestionInfos[currentQuestion.id];
+    info.firstTime = false;
     if (answer == currentQuestion.correct) {
         correctBox.classList.remove("wrong");
         correctBox.classList.add("correct");
