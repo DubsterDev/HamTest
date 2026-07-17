@@ -102,19 +102,24 @@ function submitAnswer() {
     
     const answer = parseInt(document.querySelector('input[name="answerRadio"]:checked')?.value ?? "0");
 
+    const info = userQuestionInfos[currentQuestion.id];
     if (answer == currentQuestion.correct) {
         correctBox.classList.remove("wrong");
         correctBox.classList.add("correct");
         correctBox.classList.add("visible");
         correctBoxTitle.innerText = "Correct!";
         correctBoxSubtitle.innerText = "That was the right answer.";
+
+        info.score++;
     } else {
         correctBox.classList.remove("correct");
         correctBox.classList.add("wrong");
         correctBox.classList.add("visible");
         correctBoxTitle.innerText = "Wrong.";
         correctBoxSubtitle.innerText = `The right answer was ${currentQuestion.correct_letter}`;
+        info.score--;
     }
+    updateQuestionInfo(currentQuestion.id, info);
 
     correctBox.style.maxHeight = (correctBox.scrollHeight * 3) + 'px'
 }
