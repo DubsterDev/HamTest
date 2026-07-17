@@ -148,11 +148,18 @@ function nextQuestion() {
         questionExplanationButton.style.display = "none";
         questionExplanation.innerText = "There is no explanation for this question yet.";
     }
-    
-    quizProgressBar.max = questionPool.length;
-    quizProgressBar.value = Object.keys(userQuestionInfos).length;
-    questionsSeen.innerText = Object.keys(userQuestionInfos).length;
-    totalQuestions.innerText = questionPool.length;
+
+    const amountTotalQuestions = questionPool.length;
+    const amountQuestionsSeen = Object.keys(userQuestionInfos).length;
+    quizProgressBar.max = amountTotalQuestions;
+    quizProgressBar.value = amountQuestionsSeen;
+    questionsSeen.innerText = amountQuestionsSeen;
+    totalQuestions.innerText = amountTotalQuestions;
+
+    if (amountTotalQuestions == amountQuestionsSeen && scoresLessThanZero.length == 0) {
+        document.getElementById("someQuestionsSeen").style.display = "none";
+        document.getElementById("allQuestionsSeen").style.display = "block";
+    }
 }
 
 function submitAnswer() {
