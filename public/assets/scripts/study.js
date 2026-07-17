@@ -3,6 +3,8 @@ const questionIdText = document.getElementById("questionId");
 const questionText = document.getElementById("questionText");
 const answerTexts = [...document.querySelectorAll(".answerText")];
 
+const figure = document.getElementById("figure");
+
 const correctBox = document.getElementById("correctBox");
 const correctBoxTitle = document.getElementById("correctBoxTitle");
 const correctBoxSubtitle = document.getElementById("correctBoxSubtitle");
@@ -94,6 +96,13 @@ function nextQuestion() {
     currentQuestion.answers.forEach((answer, i) => {
         answerTexts[i].innerText = answer;
     })
+
+    if (currentQuestion.figure != "") {
+        figure.src = `/assets/images/figures/${currentQuestion.figure}`;
+        figure.style.display = "block";
+    } else {
+        figure.style.display = "none";
+    }
 }
 
 function submitAnswer() {

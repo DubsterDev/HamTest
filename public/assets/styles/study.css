@@ -6,7 +6,9 @@ main {
 
 .question {
     margin-top: auto;
-    padding-bottom: var(--unit-3);
+    padding: var(--unit-3);
+    overflow: auto;
+    scrollbar-width: thin;
 }
 
 .question h3 {
@@ -20,6 +22,11 @@ main {
 .question input[type="radio"] {
     width: var(--unit-4);
     height: var(--unit-4);
+}
+
+.question #figure {
+    display: none;
+    width: 100%;
 }
 
 #questionId {
