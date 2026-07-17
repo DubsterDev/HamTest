@@ -59,6 +59,7 @@ main {
 .question #figure {
     display: none;
     width: 100%;
+    margin-bottom: var(--unit-3);
 }
 
 #questionIdContainer {
