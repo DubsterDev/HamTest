@@ -1,6 +1,9 @@
 const submitButton = document.getElementById("submitButton");
 const questionIdText = document.getElementById("questionId");
+const newOrWeak = document.getElementById("newOrWeak");
+
 const questionText = document.getElementById("questionText");
+
 const answers = [...document.querySelectorAll(".answer")];
 const answerTexts = [...document.querySelectorAll(".answerText")];
 
@@ -104,6 +107,19 @@ function nextQuestion() {
     const newCorrectAnswerIndex = currentQuestion.answers.indexOf(correctAnswer);
     currentQuestion.correct = newCorrectAnswerIndex;
     currentQuestion.correct_letter = abcd[newCorrectAnswerIndex];
+
+    if (currentQuestion.userQuestionInfo.firstTime) {
+        newOrWeak.style.display = "block";
+        newOrWeak.classList = "new";
+        newOrWeak.innerText = "New";
+    } else if (currentQuestion.userQuestionInfo.score < 0) {
+        newOrWeak.style.display = "block";
+        newOrWeak.classList = "weak";
+        newOrWeak.innerText = "Weak";
+    } else {
+        
+        newOrWeak.style.display = "none";
+    }
 
     questionIdText.innerText = currentQuestion.id;
     questionIdExplanation.innerText = currentQuestion.id;

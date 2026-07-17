@@ -11,6 +11,29 @@ main {
     scrollbar-width: thin;
 }
 
+.question .infoRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question .infoRow #newOrWeak {
+    border-radius: var(--unit-3);
+    padding: var(--unit-1) var(--unit-3);
+    margin: 0;
+    display: none;
+}
+
+.question .infoRow #newOrWeak.new {
+    background-color: var(--secondary-container-bg);
+}
+
+.question .infoRow #newOrWeak.weak {
+    background-color: var(--success-container);
+    color: var(--on-success-container);
+}
+
 .question h3 {
     font-size: 150%;
 }
@@ -40,6 +63,8 @@ main {
 
 #questionIdContainer {
     color: var(--dim-text-color);
+    margin: 0;
+    padding: var(--unit-1) 0;
 }
 
 #correctBox {
