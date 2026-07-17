@@ -2,6 +2,7 @@
     --text-color: light-dark(#212121, #fafafa);
     --background-color: light-dark(#fafafa, #212121);
     --secondary-container-bg: light-dark(#d5f8d0, #134b0b);
+    --dim-text-color: light-dark(#787878, #c2c2c2);
     --unit-0: 0;
     --unit-1: 0.25rem; /* 4px */
     --unit-2: 0.5rem; /* 8px */
