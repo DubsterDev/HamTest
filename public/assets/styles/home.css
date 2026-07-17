@@ -1,0 +1,16 @@
+.quizGrid .quizCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--secondary-container-bg);
+    padding: var(--unit-3);
+    border-radius: var(--unit-3);
+    margin: var(--unit-2) 0;
+}
+
+.quizGrid .quizCard .info * {
+    margin: var(--unit-1);
+}

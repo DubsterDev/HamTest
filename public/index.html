@@ -4,8 +4,50 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ham Test</title>
+	<link rel="shortcut icon" href="/assets/images/logo.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="/assets/styles/home.css">
+	<link rel="stylesheet" href="/assets/styles/shared.css">
+
+	<!-- fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Lato&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Lato&display=swap"
+        media="print" onload="this.media='all'" />
 </head>
 <body>
-	
+    <header>
+        <a href="/" class="title">
+            <img src="/assets/images/logo.svg" alt="Ham Test logo">
+            <h2>Ham Test</h2>
+        </a>
+        <div></div>
+    </header>
+    <main>
+        <h1>Hello!</h1>
+        <p>Are you ready to start studying for your ham test?</p>
+        <div class="quizGrid">
+            <a class="quizCard" href="/study/technician">
+                <div class="info">
+                    <h3>Technician</h3>
+                    <p>Study for the 2026-2030 question pool</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentcolor" viewBox="0 -960 960 960"><path d="M504-480 320-664l56-56 240 240-240 240-56-56z"/></svg>
+            </a>
+            <a class="quizCard" href="/study/technician">
+                <div class="info">
+                    <h3>General</h3>
+                    <p>Study for the 2023-2027 question pool</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentcolor" viewBox="0 -960 960 960"><path d="M504-480 320-664l56-56 240 240-240 240-56-56z"/></svg>
+            </a>
+            <a class="quizCard" href="/study/technician">
+                <div class="info">
+                    <h3>Extra</h3>
+                    <p>Study for the 2024-2028 question pool</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentcolor" viewBox="0 -960 960 960"><path d="M504-480 320-664l56-56 240 240-240 240-56-56z"/></svg>
+            </a>
+        </div>
+    </main>
 </body>
 </html>
