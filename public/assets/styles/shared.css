@@ -1,7 +1,7 @@
 :root {
-    --text-color: #212121;
-    --background-color: #fafafa;
-    --secondary-container-bg: #d5f8d0;
+    --text-color: light-dark(#212121, #fafafa);
+    --background-color: light-dark(#fafafa, #212121);
+    --secondary-container-bg: light-dark(#d5f8d0, #134b0b);
     --unit-0: 0;
     --unit-1: 0.25rem; /* 4px */
     --unit-2: 0.5rem; /* 8px */
@@ -26,6 +26,7 @@
     --unit-large: var(--unit-10);
     --unit-xlarge: var(--unit-16);
     --unit-xxxlarge: var(--unit-30);
+    color-scheme: light dark;
 }
 
 * {

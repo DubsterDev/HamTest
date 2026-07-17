@@ -14,7 +14,6 @@
 
 .quizGrid .quizCard:hover {
     border-radius: var(--unit-2);
-    box-shadow: 4px 4px 5px #bab9b957;
     transform: scale(1.01);
 }
 
