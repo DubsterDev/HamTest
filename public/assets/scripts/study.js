@@ -1,6 +1,7 @@
 const submitButton = document.getElementById("submitButton");
 const questionIdText = document.getElementById("questionId");
 const questionText = document.getElementById("questionText");
+const answers = [...document.querySelectorAll(".answer")];
 const answerTexts = [...document.querySelectorAll(".answerText")];
 
 const figure = document.getElementById("figure");
@@ -47,6 +48,8 @@ function nextQuestion() {
     
     correctBox.classList.remove("visible");
     correctBox.style.maxHeight = 0;
+
+    document.querySelector(".answer.correct")?.classList?.remove("correct");
     
     const scoresLessThanZero = Object.keys(userQuestionInfos).filter(key => userQuestionInfos[key].score < 0);
 
@@ -110,6 +113,8 @@ function submitAnswer() {
     submitButton.innerText = "Next question";
     
     const answer = parseInt(document.querySelector('input[name="answerRadio"]:checked')?.value ?? "0");
+
+    answers[currentQuestion.correct].classList.add("correct");
 
     const info = userQuestionInfos[currentQuestion.id];
     if (answer == currentQuestion.correct) {

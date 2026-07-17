@@ -17,6 +17,15 @@ main {
 
 .question p {
     font-size: 110%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--unit-3);
+}
+
+.question .answer.correct {
+    color: var(--success);
 }
 
 .question input[type="radio"] {
