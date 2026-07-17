@@ -4,6 +4,11 @@ const questionText = document.getElementById("questionText");
 const answers = [...document.querySelectorAll(".answer")];
 const answerTexts = [...document.querySelectorAll(".answerText")];
 
+const questionExplanationDialog = document.getElementById("questionExplanationDialog");
+const questionExplanationButton = document.getElementById("questionExplanationButton");
+const questionIdExplanation = document.getElementById("questionIdExplanation");
+const questionExplanation = document.getElementById("questionExplanation");
+
 const figure = document.getElementById("figure");
 
 const correctBox = document.getElementById("correctBox");
@@ -40,6 +45,9 @@ submitButton.addEventListener("click", () => {
 document.querySelectorAll('input[type="radio"]').forEach(el => {
     el.addEventListener("click", () => submitButton.disabled = false)
 });
+
+questionExplanationButton.addEventListener("click", () => questionExplanationDialog.showModal());
+document.getElementById("explanationGotItButton").addEventListener("click", () => questionExplanationDialog.close())
 
 const abcd = ["A", "B", "C", "D"];
 function nextQuestion() {
@@ -98,6 +106,8 @@ function nextQuestion() {
     currentQuestion.correct_letter = abcd[newCorrectAnswerIndex];
 
     questionIdText.innerText = currentQuestion.id;
+    questionIdExplanation.innerText = currentQuestion.id;
+    
     questionText.innerText = currentQuestion.question;
     currentQuestion.answers.forEach((answer, i) => {
         answerTexts[i].innerText = answer;
@@ -108,6 +118,14 @@ function nextQuestion() {
         figure.style.display = "block";
     } else {
         figure.style.display = "none";
+    }
+
+    if (currentQuestion.explanation != null) {
+        questionExplanationButton.style.display = "initial";
+        questionExplanation.innerText = currentQuestion.explanation;
+    } else {
+        questionExplanationButton.style.display = "none";
+        questionExplanation.innerText = "There is no explanation for this question yet.";
     }
 }
 

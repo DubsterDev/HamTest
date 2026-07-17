@@ -38,7 +38,7 @@ main {
     width: 100%;
 }
 
-#questionId {
+#questionIdContainer {
     color: var(--dim-text-color);
 }
 
@@ -101,4 +101,23 @@ main {
 
 #correctBox.wrong #cancel {
     display: block;
+}
+
+#questionExplanationButton {
+    border: none;
+    border-radius: none;
+    background-color: transparent;
+    padding: 0;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+#questionExplanationDialog {
+    border-radius: var(--unit-5);
+    border: none;
+    max-width: 600px;
+    background-color: var(--background-color);
 }
