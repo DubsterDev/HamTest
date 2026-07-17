@@ -50,6 +50,9 @@ function nextQuestion() {
     correctBox.style.maxHeight = 0;
 
     document.querySelector(".answer.correct")?.classList?.remove("correct");
+
+    const checkedRadio = document.querySelector('input[name="answerRadio"]:checked');
+    if (checkedRadio) checkedRadio.checked = false;
     
     const scoresLessThanZero = Object.keys(userQuestionInfos).filter(key => userQuestionInfos[key].score < 0);
 
