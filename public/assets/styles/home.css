@@ -9,6 +9,13 @@
     padding: var(--unit-3);
     border-radius: var(--unit-3);
     margin: var(--unit-2) 0;
+    transition: 0.25s;
+}
+
+.quizGrid .quizCard:hover {
+    border-radius: var(--unit-2);
+    box-shadow: 4px 4px 5px #bab9b957;
+    transform: scale(1.01);
 }
 
 .quizGrid .quizCard .info * {
