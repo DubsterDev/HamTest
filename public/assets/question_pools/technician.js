@@ -1,3 +1,4 @@
+const studyClass = "technician";
 const questionPool = [
   {
     "id": "T1A01",

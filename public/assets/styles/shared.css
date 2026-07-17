@@ -27,6 +27,7 @@
     --unit-xlarge: var(--unit-16);
     --unit-xxxlarge: var(--unit-30);
     color-scheme: light dark;
+    accent-color: light-dark(#005f00, #97ea8b);
 }
 
 * {
@@ -55,7 +56,7 @@ main {
 }
 
 header {
-    height: 64px;
+    height: var(--unit-16);
     width: 100%;
     max-width: 800px;
     margin: auto;
@@ -87,6 +88,15 @@ header a {
 
 a {
     color: var(--text-color);
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: var(--unit-3);
+    border-radius: var(--unit-10);
+    border: none;
+    background-color: var(--secondary-container-bg);
 }
 
 @media screen and (max-width: 801px) {

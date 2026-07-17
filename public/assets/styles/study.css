@@ -1,0 +1,23 @@
+main {
+    height: calc(100% - var(--unit-16));
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    margin-top: auto;
+    padding-bottom: var(--unit-3);
+}
+
+.question h3 {
+    font-size: 150%;
+}
+
+.question p {
+    font-size: 110%;
+}
+
+.question input[type="radio"] {
+    width: var(--unit-4);
+    height: var(--unit-4);
+}

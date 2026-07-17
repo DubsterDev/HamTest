@@ -1,3 +1,4 @@
+const studyClass = "general";
 const questionPool = [
   {
     "id": "G1A01",

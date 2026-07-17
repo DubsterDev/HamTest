@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ham Test</title>
+	<link rel="shortcut icon" href="/assets/images/logo.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="/assets/styles/study.css">
+	<link rel="stylesheet" href="/assets/styles/shared.css">
+
+	<!-- fonts -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/icon?family=Lato&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Lato&display=swap"
+        media="print" onload="this.media='all'" />
+</head>
+<body>
+    <header>
+        <a href="/" class="title">
+            <img src="/assets/images/logo.svg" alt="Ham Test logo">
+            <h2>Ham Test</h2>
+        </a>
+        <div></div>
+    </header>
+    <main>
+        <div class="question">
+            <h3>Does this look cool?</h3>
+            <label class="answer">
+                <p>
+                    <input type="radio" id="answer1Radio" name="answerRadio" value="1">
+                    A. <span id="answer1Text">Yes</span>
+                </p>
+            </label>
+            <label class="answer">
+                <p>
+                    <input type="radio" id="answer2Radio" name="answerRadio" value="2">
+                    B. <span id="answer2Text">Of course</span>
+                </p>
+            </label>
+            <label class="answer">
+                <p>
+                    <input type="radio" id="answer3Radio" name="answerRadio" value="3">
+                    C. <span id="answer3Text">No, the FCC rules prohibit it from looking cool</span>
+                </p>
+            </label>
+            <label class="answer">
+                <p>
+                    <input type="radio" id="answer4Radio" name="answerRadio" value="4">
+                    D. <span id="answer4Text">The ARRL bylaws prevent ham software from looking new</span>
+                </p>
+            </label>
+            <button id="submitButton" disabled>Submit</button>
+        </div>
+    </main>
+</body>
+</html>

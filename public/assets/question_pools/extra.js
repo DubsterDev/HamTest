@@ -1,3 +1,4 @@
+const studyClass = "extra";
 const questionPool = [
   {
     "id": "E1A01",
