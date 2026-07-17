@@ -1,4 +1,4 @@
-[
+const questionPool = [
   {
     "id": "G1A01",
     "correct": 2,
