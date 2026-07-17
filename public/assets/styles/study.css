@@ -47,6 +47,9 @@ p {
 .question h3 {
     font-size: 150%;
     margin: 0;
+}
+
+.question #questionText {
     padding: var(--unit-3) 0;
 }
 
