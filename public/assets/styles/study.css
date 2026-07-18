@@ -168,6 +168,10 @@ p {
     background-color: var(--background-color);
 }
 
+#questionExplanationDialog h3 {
+    padding: var(--unit-3) 0;
+}
+
 #questionExplanationDialog button {
     margin-top: var(--unit-3);
 }
