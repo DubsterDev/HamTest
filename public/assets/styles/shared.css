@@ -97,7 +97,7 @@ a {
     color: var(--text-color);
 }
 
-button {
+button, .button {
     display: block;
     width: 100%;
     padding: var(--unit-3);
@@ -106,6 +106,9 @@ button {
     background-color: var(--success-container);
     color: var(--on-sucess-container);
     cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    font-size: inherit;
 }
 
 @media screen and (max-width: 801px) {

@@ -1,0 +1,94 @@
+.question .buttonRow {
+    display: flex;
+    flex-direction: row;
+    gap: var(--unit-3);
+}
+
+.question .buttonRow button {
+    background-color: transparent;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: var(--unit-3);
+}
+
+.question .buttonRow button:disabled {
+    color: var(--dim-text-color);
+}
+
+#practiceTestProgress p {
+    padding-top: var(--unit-3);
+}
+
+.splitButtons {
+    display: flex;
+    flex-direction: row;
+    gap: var(--unit-1);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.splitButtons .button1 {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.splitButtons .button2 {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#practiceTestFinishedDialog {
+    border: none;
+    border-radius: var(--unit-5);
+    background-color: var(--background-color);
+    min-width: 35%;
+    max-width: 600px;
+}
+
+#practiceTestFinishedDialog h3 {
+    margin: 0;
+}
+
+#practiceTestFinishedDialog[open] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--unit-3);
+}
+
+#passedTest {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--unit-3);
+}
+
+.testIcon {
+    width: var(--unit-30);
+    display: none;
+}
+
+#practiceTestPassedCheck {
+    fill: var(--success);
+}
+
+#practiceTestFailedX {
+    fill: var(--error);
+}
+
+#smallPracticeTestFinished {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#smallPracticeTestFinished button {
+    width: fit-content;
+}
