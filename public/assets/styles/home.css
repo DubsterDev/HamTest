@@ -1,3 +1,7 @@
+main#home {
+    padding-bottom: var(--unit-3);
+}
+
 .quizGrid .quizCard {
     display: flex;
     flex-direction: row;
