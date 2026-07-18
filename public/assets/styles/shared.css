@@ -105,6 +105,7 @@ button {
     border: none;
     background-color: var(--success-container);
     color: var(--on-sucess-container);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 801px) {
