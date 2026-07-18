@@ -61,6 +61,7 @@ const abcd = ["A", "B", "C", "D"];
 function nextQuestion() {
     answerSubmitted = false;
     submitButton.innerText = "Submit";
+    submitButton.disabled = true;
     
     correctBox.classList.remove("visible");
     correctBox.style.maxHeight = 0;
