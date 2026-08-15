@@ -11,6 +11,5 @@ Try it out at https://hamtest.web.app
 
  ## Screenshots
 
-![Ham Test Homepage](screenshots/home.png)
-![Study mode](screenshots/study.png)
-![Practice mode](screenshots/practice.png)
+<img src="screenshots/home.png" style="width: 32%;" /><img src="screenshots/study.png" style="width: 32%;" />
+<img src="screenshots/practice.png" style="width: 32%;" />
