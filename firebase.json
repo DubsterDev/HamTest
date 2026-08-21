@@ -4,6 +4,12 @@
     "public": "build",
     "cleanUrls": true,
     "trailingSlash": true,
+    "rewrites": [
+        {
+            "source": "/googleaa4c9892bd304f92.html",
+            "destination": "/google_verification.html"
+        }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",

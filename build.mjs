@@ -7,8 +7,9 @@ await mkdir("build/");
 // Read header
 const header = await readFile("app/header.html", {encoding: "utf-8"});
 
-// Copy assets
+// Copy assets, Google search verification file
 await cp("app/assets", "build/assets", { recursive: true });
+await cp("app/google_verification.html", "build/google_verification.html", { recursive: true });
 
 // Copy 404, index
 await copyFile("app/index.html", "build/index.html");
