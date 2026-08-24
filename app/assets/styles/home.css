@@ -28,3 +28,8 @@ main#home {
 .quizGrid .quizCard svg {
     flex-shrink: 0;
 }
+
+.openSourceNotice {
+    margin-top: 30px;
+    font-style: italic;
+}

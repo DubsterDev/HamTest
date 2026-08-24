@@ -4,8 +4,9 @@ import { readFile, writeFile, rm, mkdir, cp } from "node:fs/promises";
 await rm("build/", { recursive: true, force: true });
 await mkdir("build/");
 
-// Read header
+// Read header, footer
 const header = await readFile("app/header.html", {encoding: "utf-8"});
+const footer = await readFile("app/footer.html", {encoding: "utf-8"});
 
 // Copy assets, Google search verification file
 await cp("app/assets", "build/assets", { recursive: true });
@@ -52,7 +53,7 @@ async function copyFile(src, dest, customReplace={}) {
         .replaceAll("{{extra_css}}", extraCss)
 
     
-    let processedTemplate = splitAtMetadata[1].replaceAll("{{header}}", newHeader);
+    let processedTemplate = splitAtMetadata[1].replaceAll("{{header}}", newHeader).replaceAll("{{footer}}", footer);
 
     Object.keys(customReplace).forEach(key => {
         processedTemplate = processedTemplate.replaceAll(`{{${key}}}`, customReplace[key]);
