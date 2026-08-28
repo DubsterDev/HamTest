@@ -24,6 +24,8 @@ const correctBoxTitle = document.getElementById("correctBoxTitle");
 const correctBoxSubtitle = document.getElementById("correctBoxSubtitle");
 
 const userQuestionInfos = JSON.parse(localStorage.getItem(`${studyClass}-pool`) ?? "{}");
+const settings = JSON.parse(localStorage.getItem(`settings`) ?? "{}");
+const autoSelectCorrectAnswer = "autoSelectCorrectAnswers" in settings && settings["autoSelectCorrectAnswers"];
 
 const _placeholderQuestion = {
     id: "PREVIEW",
@@ -119,7 +121,13 @@ function nextQuestion() {
     
     const correctAnswer = currentQuestion.answers[currentQuestion.correct];
     
-    shuffle(currentQuestion.answers);
+    if (!autoSelectCorrectAnswer || !currentQuestion.userQuestionInfo.firstTime) {
+        shuffle(currentQuestion.answers);
+    } else {
+        currentQuestion.answers.splice(currentQuestion.correct, 1);
+        shuffle(currentQuestion.answers);
+        currentQuestion.answers.unshift(correctAnswer);
+    }
 
     const newCorrectAnswerIndex = currentQuestion.answers.indexOf(correctAnswer);
     currentQuestion.correct = newCorrectAnswerIndex;
