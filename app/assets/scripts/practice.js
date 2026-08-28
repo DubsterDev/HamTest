@@ -174,9 +174,16 @@ function finishQuiz() {
     answerRadios.forEach(radio => radio.disabled = true);
 
     let correctQuestions = 0;
+    const userQuestionInfos = JSON.parse(localStorage.getItem(`${studyClass}-pool`) ?? "{}");
     quiz.forEach(question => {
         if (question.selected_answer == question.correct) correctQuestions++;
+        else {
+            if (question.id in userQuestionInfos) {
+                userQuestionInfos[question.id]["score"] = -2;
+            }
+        }
     })
+    localStorage.setItem(`${studyClass}-pool`, JSON.stringify(userQuestionInfos));
 
     const score = Math.floor((correctQuestions / quiz.length) * 100);
 
