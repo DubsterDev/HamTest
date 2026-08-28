@@ -81,7 +81,8 @@ function nextQuestion() {
             const newQuestion = remainingQuestions[Math.floor(remainingQuestions.length * Math.random())];
             const questionInfo = {
                 score: -2,
-                firstTime: true
+                firstTime: true,
+                lastSeenAt: usedQuestionIds.length
             };
             updateQuestionInfo(newQuestion.id, questionInfo);
             scoresLessThanZero.push(newQuestion.id);
@@ -173,6 +174,8 @@ function submitAnswer() {
 
     const info = userQuestionInfos[currentQuestion.id];
     info.firstTime = false;
+    info.lastSeenAt = Object.keys(userQuestionInfos).length;
+    
     if (answer == currentQuestion.correct) {
         correctBox.classList.remove("wrong");
         correctBox.classList.add("correct");
