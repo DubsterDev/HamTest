@@ -100,11 +100,21 @@ function nextQuestion() {
     currentQuestion = structuredClone(circulatingQuestions[0]);
 
     if (shouldUseRandomQuestion) {
+        const shouldUseRandomOldQuestion = Math.random() >= .6;
         const onlyAboveZeroQuestions = circulatingQuestions.filter(question => question.score >= 0);
+        const questionsToPullFrom = onlyAboveZeroQuestions.length > 0 ? 
+            onlyAboveZeroQuestions
+            : circulatingQuestions
 
-        currentQuestion = structuredClone(onlyAboveZeroQuestions.length > 0 ? 
-            onlyAboveZeroQuestions[Math.floor(Math.random() * onlyAboveZeroQuestions.length)]
-            : circulatingQuestions[Math.floor(Math.random() * circulatingQuestions.length)])
+        if (shouldUseRandomOldQuestion) {
+            currentQuestion = structuredClone(questionsToPullFrom[Math.floor(Math.random() * questionsToPullFrom.length)])
+        } else {
+            const oldestQuestions = questionsToPullFrom.sort((a, b) => {
+                a.lastSeenAt - b.lastSeenAt;
+            }).slice(0, 20);
+
+            currentQuestion = structuredClone(oldestQuestions[Math.floor(Math.random() * oldestQuestions.length)])
+        }
     }
     
     const correctAnswer = currentQuestion.answers[currentQuestion.correct];
