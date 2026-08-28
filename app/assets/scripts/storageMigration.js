@@ -1,3 +1,5 @@
+const latestDbVersion = 5;
+
 function migrateDb() {
     const dbVersion = parseInt(localStorage.getItem("db-version") ?? "4");
     const classes = ["technician", "general", "extra"]
@@ -21,7 +23,7 @@ function migrateDb() {
     }
 
     // Run again in case there are more updates
-    migrateDb();
+    if (dbVersion !== latestDbVersion) migrateDb();
 }
 
 migrateDb();
