@@ -25,7 +25,7 @@ const correctBoxSubtitle = document.getElementById("correctBoxSubtitle");
 
 const userQuestionInfos = JSON.parse(localStorage.getItem(`${studyClass}-pool`) ?? "{}");
 const settings = JSON.parse(localStorage.getItem(`settings`) ?? "{}");
-const autoSelectCorrectAnswer = "autoSelectCorrectAnswers" in settings && settings["autoSelectCorrectAnswers"];
+const autoSelectCorrectAnswer = "autoSelectCorrectAnswer" in settings && settings["autoSelectCorrectAnswer"];
 
 const _placeholderQuestion = {
     id: "PREVIEW",
