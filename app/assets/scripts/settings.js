@@ -2,7 +2,8 @@ function loadSettings() {
     const settings = JSON.parse(localStorage.getItem("settings") ?? "{}");
     
     Object.keys(settings).forEach(setting => {
-        document.getElementById(setting).checked = settings[setting];
+        const settingEl = document.getElementById(setting);
+        if (settingEl != null) settingEl.checked = settings[setting];
     })
     
     document.querySelectorAll("input[type=checkbox]").forEach(checkbox => {
