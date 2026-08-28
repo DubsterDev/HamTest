@@ -9,6 +9,7 @@
     --error: light-dark(rgb(186 26 26), rgb(255 180 171));
     --error-container: light-dark(rgb(255 218 214), rgb(147 0 10));
     --on-error-container: light-dark(rgb(147 0 10), rgb(255 218 214));
+    --accent-color: light-dark(#005f00, #97ea8b);
     --unit-0: 0;
     --unit-1: 0.25rem; /* 4px */
     --unit-2: 0.5rem; /* 8px */

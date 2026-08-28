@@ -1,0 +1,93 @@
+.settingsContainer {
+    background-color: var(--secondary-container-bg);
+    border-radius: var(--unit-3);
+    padding: var(--unit-3);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    margin-bottom: var(--unit-1);
+    text-decoration: none;
+}
+
+.settingsContainer.top {
+    border-radius: var(--unit-3) var(--unit-3) 0 0;
+}
+
+.settingsContainer.bottom {
+    border-radius: 0 0 var(--unit-3) var(--unit-3);
+}
+
+.settingsContainer.middle {
+    border-radius: 0;
+}
+
+.settingsContainer div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--unit-2);
+}
+
+.settingsContainer div * {
+    padding: 0;
+    margin: 0;
+}
+
+.settingsLabel {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/*
+Source - https://stackoverflow.com/a/79274945
+Posted by Naeem Akhtar
+Modified
+Retrieved 2026-08-28, License - CC BY-SA 4.0
+*/
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    flex-shrink: 0;
+}
+
+.toggle input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background-color);
+    transition: 0.2s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--text-color);
+    transition: 0.2s;
+    border-radius: 50%;
+}
+
+input:checked + .slider:before {
+    background-color: var(--background-color);
+}
+
+input:checked + .slider {
+    background-color: var(--success);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
