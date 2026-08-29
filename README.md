@@ -38,4 +38,5 @@ The **Amateur Extra** question pool is valid through **2024-2028**.
 
  ## Screenshots
 
-<img src="screenshots/home.png" style="width: 24%;" /><img src="screenshots/study.png" style="width: 24%;" /><img src="screenshots/practice.png" style="width: 24%;" /><img src="screenshots/settings.png" style="width: 24%;" />
+<img src="screenshots/home.png" style="width: 49.8%;" /><img src="screenshots/study.png" style="width: 49.8%;" />
+<img src="screenshots/practice.png" style="width: 49.8%;" /><img src="screenshots/settings.png" style="width: 49.8%;" />
