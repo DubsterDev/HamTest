@@ -23,6 +23,10 @@ const classNames = ["Technician", "General", "Extra"];
 await mkdir("build/practice");
 await mkdir("build/study");
 
+// Copy practice, study home files
+await copyFile("app/practice_home.html", "build/practice/index.html");
+await copyFile("app/study_home.html", "build/study/index.html");
+
 // Copy practice, study
 const practiceTemplate = await readFile("app/practice.html", {encoding: "utf-8"});
 const studyTemplate = await readFile("app/study.html", {encoding: "utf-8"});
