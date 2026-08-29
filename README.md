@@ -4,6 +4,21 @@ A simple, easy to use app to prepare you to take all three US amateur radio test
 
 Try it out at https://hamtest.web.app
 
+## Want to study offline?
+
+You can use Ham Test's Android app, completely offline with no internet access at all!
+
+Best of all, you can import and export your progress through the settings, making it easy to switch between devices.
+
+<p>
+ <a href="https://f-droid.org/en/packages/com.hazelhope.dubster.hamtest/">
+  <img src="https://f-droid.org/badge/get-it-on.png" style="height: 80px;">
+ </a>
+ <a href="https://github.com/DubsterDev/HamTestAndroid/releases">
+  <img src="https://raw.githubusercontent.com/Kunzisoft/Github-badge/refs/heads/main/get-it-on-github.png" style="height: 80px;">
+ </a>
+</p>
+
 ## Features
 
  - Study mode featuring repetitive questions to make you remember the correct answers
