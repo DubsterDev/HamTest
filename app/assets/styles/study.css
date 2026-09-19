@@ -175,3 +175,37 @@ p {
 #questionExplanationDialog button {
     margin-top: var(--unit-3);
 }
+
+.bold {
+    font-weight: bold;
+}
+
+.progressCard {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--unit-3);
+    flex-shrink: 0;
+    padding: var(--unit-3);
+    text-decoration: none;
+}
+
+.progressCard#allQuestionsSeen {
+    justify-content: space-between;
+}
+
+.progressCard .progressWords {
+    display: flex;
+    flex-direction: column;
+    gap: var(--unit-2);
+}
+
+#circularProgress {
+    --progress: 0;
+    height: 90%;
+    aspect-ratio: 1;
+    background-image: radial-gradient(circle, var(--background-color) 0 50%, transparent 50% 100%), conic-gradient(var(--success) var(--progress), #00000030 var(--progress));
+    border-radius: 50%;
+}

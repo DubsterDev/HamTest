@@ -1,8 +1,8 @@
 const submitButton = document.getElementById("submitButton");
 
-const quizProgressBar = document.getElementById("quizProgress");
-const questionsSeen = document.getElementById("questionsSeen");
-const totalQuestions = document.getElementById("totalQuestions");
+const quizProgressBar = document.getElementById("circularProgress");
+const progressText = document.getElementById("poolProgress");
+const questionsToGo = document.getElementById("questionsToGo");
 
 const questionIdText = document.getElementById("questionId");
 const newOrWeak = document.getElementById("newOrWeak");
@@ -171,14 +171,17 @@ function nextQuestion() {
 
     const amountTotalQuestions = questionPool.length;
     const amountQuestionsSeen = Object.keys(userQuestionInfos).length;
-    quizProgressBar.max = amountTotalQuestions;
-    quizProgressBar.value = amountQuestionsSeen;
-    questionsSeen.innerText = amountQuestionsSeen;
-    totalQuestions.innerText = amountTotalQuestions;
+    const poolPercentage = amountQuestionsSeen / amountTotalQuestions * 100;
+    progressText.innerText = Math.floor(poolPercentage);
+    quizProgressBar.style = `--progress: ${poolPercentage}%;`
+    
+    questionsToGo.innerText = amountTotalQuestions - amountQuestionsSeen;
+
+    console.log(scoresLessThanZero.length)
 
     if (amountTotalQuestions == amountQuestionsSeen && scoresLessThanZero.length == 0) {
         document.getElementById("someQuestionsSeen").style.display = "none";
-        document.getElementById("allQuestionsSeen").style.display = "block";
+        document.getElementById("allQuestionsSeen").style.display = "flex";
     }
 }
 
