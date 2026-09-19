@@ -208,7 +208,7 @@ function submitAnswer() {
         correctBox.classList.add("visible");
         correctBoxTitle.innerText = "Wrong.";
         correctBoxSubtitle.innerText = `The right answer was ${currentQuestion.correct_letter}`;
-        info.score--;
+        info.score = -2;
     }
     updateQuestionInfo(currentQuestion.id, info);
 
