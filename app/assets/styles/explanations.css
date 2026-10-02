@@ -1,0 +1,46 @@
+summary.hasExplanation {
+    font-style: italic;
+    filter: brightness(0.5);
+}
+
+details {
+    padding: var(--unit-4);
+    margin: var(--unit-4) 0;
+    background: #424242;
+    border-radius: var(--unit-3);
+}
+
+textarea {
+    width: 100%;
+    min-height: var(--unit-20);
+    margin-top: var(--unit-4);
+}
+
+.answer {
+    padding: var(--unit-1) var(--unit-2);
+    border-radius: var(--unit-2);
+    margin: var(--unit-1);
+}
+
+.answer.correct {
+    background-color: var(--success-container);
+    color: var(--on-success-container);
+}
+
+#explanations button {
+    position: fixed;
+    bottom: var(--unit-4);
+    right: var(--unit-4);
+    width: var(--unit-20);
+    border-radius: var(--unit-4);
+}
+
+dialog {
+    border-radius: var(--unit-3);
+    border: none;
+    background-color: var(--background-color);
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(3px) brightness(0.5);
+}

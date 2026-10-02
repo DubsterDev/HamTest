@@ -12,10 +12,11 @@ const footer = await readFile("app/footer.html", {encoding: "utf-8"});
 await cp("app/assets", "build/assets", { recursive: true });
 await cp("app/google_verification.html", "build/google_verification.html", { recursive: true });
 
-// Copy 404, index, settings
+// Copy 404, index, settings, explanations
 await copyFile("app/index.html", "build/index.html");
 await copyFile("app/404.html", "build/404.html");
 await copyFile("app/settings.html", "build/settings.html");
+await copyFile("app/explanations.html", "build/explanations.html");
 
 const classNames = ["Technician", "General", "Extra"];
 

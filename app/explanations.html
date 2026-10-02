@@ -1,0 +1,36 @@
+<!--metadata:
+{
+    "title": "Explanations | Ham Test",
+    "css": ["explanations"]
+}
+:endmetadata-->
+{{header}}
+    <main>
+        <h1>Contributing explanations</h1>
+        <p>I'm trying to get explanations for all of the questions in the pools. These should be original and not be copied from another site like HamStudy, as those are not licensed for open source use. Instead, they should be your original work.</p>
+        <p>Please do not use AI to write explanations. If you're contributing explanations, you should write them yourself or have permission from the author to add them here.</p>
+        <p>Explanations submitted will be licensed under the GPL-3.0 license. Pending changes are not visible here.</p>
+        <p id="loadingExplanations" class="italic">Loading questions, please wait...</p>
+        <form id="explanations">
+            <button>Submit</button>
+        </form>
+        <dialog id="error" closedby="none">
+            <h2>Oops, something went wrong</h2>
+            <p id="rateLimited">You were rate limited. Try again in five minutes.</p>
+            <p id="internalServerError">Something broke, consider making an issue.</p>
+            <button id="retry">Retry</button>
+        </dialog>
+        <dialog id="submittingChanges" closedby="none">
+            <h2>Your changes are being submitted</h2>
+            <p>Please wait a few moments, we are sending your changes off to the reviewing queue.</p>
+        </dialog>
+        <dialog id="success" closedby="none">
+            <h2>Your changes will be reviewed soon</h2>
+            <p>Your changes have been sent to the queue and will be reviewed soon.</p>
+            <p>You can <a id="githubLink" target="_blank">track the progress here.</a></p>
+            <p>While your changes are pending, you will not see them on this page.</p>
+            <button id="closeSuccess">Close</button>
+        </dialog>
+    </main>
+    <script src="/assets/scripts/explanations.js" type="module"></script>
+{{footer}}
